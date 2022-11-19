@@ -1,4 +1,4 @@
-package com.cristian.loopback;
+package com.loopback;
 
 import com.liquidms.LiquidMS;
 
@@ -24,7 +24,8 @@ public class Main {
             LiquidMS.run(args);
 
         } catch (Throwable e) {
-            System.err.println("Error:"+e.getMessage());
+            System.err.println("Main.java Error:"+e.getMessage());
+            e.printStackTrace();
         }
     }
 }

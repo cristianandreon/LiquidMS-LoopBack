@@ -1,16 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.cristian.loopback.Main
-Class-Path: jna-jpms-5.10.0.jar slf4j-api-1.7.36.jar oshi-core-java11-6.
- 1.5.jar jna-platform-jpms-5.10.0.jar jetty-server-9.4.3.v20170317.jar s
- lf4j-api-1.7.25.jar jetty-http-9.4.3.v20170317.jar jetty-servlet-9.4.3.
- v20170317.jar log4j-core-2.13.3.jar activation.jar apache-commons-lang.
- jar commons-codec-1.14.jar ganymed-ssh2-262.jar gson-2.8.2.jar javassis
- t.jar javax.activation.jar javax.xml-1.3.4.jar javax.xml.bind.jar jsch-
- 0.1.55.jar jsoup-1.13.1.jar mail-1.4.7.jar mssql-jdbc-8.2.2.jre13.jar m
- ysql-connector-java-8.0.19.jar ojdbc8.jar postgresql-42.2.6.jar json-20
- 211205.jar javax.servlet.jsp-3.1.jar javax.servlet-api-3.1.0.jar common
- s-logging-1.2.jar commons-pool2-2.6.0.jar commons-dbcp2-2.9.0.jar javax
- .servlet-api-3.1.0.jar log4j-api-2.13.3.jar jetty-util-9.4.3.v20170317.
- jar jetty-io-9.4.3.v20170317.jar jetty-security-9.4.3.v20170317.jar log
- 4j-slf4j-impl-2.13.3.jar
+Main-Class: com.loopback.Main
 

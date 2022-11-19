@@ -1,4 +1,4 @@
-package com.cristian.loopback;
+package com.loopback;
 
 import com.liquid.bean;
 import com.liquid.utility;
@@ -38,6 +38,8 @@ public class demoServlet implements Servlet {
         } catch (Exception e) {
             result.put("error", e.getMessage());
         }
+
+        result.put("header", SETUP_STRING);
 
         System.out.println("service done");
 
