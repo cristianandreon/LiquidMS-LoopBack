@@ -1,7 +1,9 @@
-package com.customer.app;
+package com.cristian.loopback;
 
+import com.liquid.bean;
+import com.liquid.utility;
 import com.liquidms.LiquidMS;
-import com.liquid.*;
+import org.json.JSONObject;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -9,15 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class demoServlet implements Servlet {
 
-    private static String SETUP_STRING = "Welcome in Liquid MicroService ver."+ LiquidMS.version;
+    private static String SETUP_STRING = "Liquid MicroService Loopback ver."+ LiquidMS.version;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -31,38 +29,24 @@ public class demoServlet implements Servlet {
 
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-        String result = "{";
-        result += "\"header\":\""+SETUP_STRING+"\"";
+        JSONObject result = new JSONObject();
 
-        System.out.println("service");
-
-        //
-        // Read DB using Liquid
-        //
-        result += ",\"Settings\":[";
-        ArrayList<Object> beans = null;
         try {
-            beans = bean.load_beans("liquidx.settings", "prop, value", "1=1");
-            if(beans != null) {
-                for (int i = 0; i < beans.size(); i++) {
-                    String prop = (String) utility.getEx(beans.get(i), "prop");
-                    Object value = utility.getEx(beans.get(i), "value");
-                    result += i > 0 ? "," : "";
-                    result += "{\"" + prop + "\":\"" + value + "\"}";
-                }
-            }
-        } catch (Throwable e) {
-            result += "\"Internal error:"+e.getMessage()+"\"";
+            JSONObject body = new JSONObject(com.liquid.utility.get_request_content((HttpServletRequest) request));
+            result.put("content", body.getString("content"));
+            result.put("filename", body.getString("filename"));
+        } catch (Exception e) {
+            result.put("error", e.getMessage());
         }
-        result += "]}";
 
+        System.out.println("service done");
 
 
 
         //
         // Write long response
         //
-        ByteBuffer content = ByteBuffer.wrap(result.getBytes(StandardCharsets.UTF_8));
+        ByteBuffer content = ByteBuffer.wrap(result.toString().getBytes(StandardCharsets.UTF_8));
         AsyncContext async = request.startAsync();
         ServletOutputStream out = response.getOutputStream();
         out.setWriteListener(new WriteListener() {

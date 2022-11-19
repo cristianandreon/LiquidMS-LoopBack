@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Liquid/Liquid.iml" filepath="$PROJECT_DIR$/../Liquid/Liquid.iml" />
       <module fileurl="file://$PROJECT_DIR$/../LiquidMS/LiquidMS.iml" filepath="$PROJECT_DIR$/../LiquidMS/LiquidMS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LiquidMS-demo.iml" filepath="$PROJECT_DIR$/LiquidMS-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LiquidMS-Loopback.iml" filepath="$PROJECT_DIR$/LiquidMS-Loopback.iml" />
     </modules>
   </component>
 </project>
