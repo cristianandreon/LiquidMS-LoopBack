@@ -12,7 +12,7 @@ public class Main {
             // com.liquid.connection.addLiquidDBConnection("postgres", null, null, "LiquidX", "liquid", "liquid", true);
 
             // Register servlet
-            LiquidMS.addServlet(demoServlet.class, "api/v1/dss/sign/base64");
+            LiquidMS.addServlet(loopbackServlet.class, "/api/v1/dss/sign/base64");
 
             // Register periodic event forever with no start delay
             // LiquidMS.addEvent("slowCycleDemo", "com.customer.app.demoServlet", "slow_cycle_demo", 0, 5000, 0);

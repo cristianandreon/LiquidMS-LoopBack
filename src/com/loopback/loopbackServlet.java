@@ -1,7 +1,5 @@
 package com.loopback;
 
-import com.liquid.bean;
-import com.liquid.utility;
 import com.liquidms.LiquidMS;
 import org.json.JSONObject;
 
@@ -11,9 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 
-public class demoServlet implements Servlet {
+public class loopbackServlet implements Servlet {
 
     private static String SETUP_STRING = "Liquid MicroService Loopback ver."+ LiquidMS.version;
 
@@ -32,9 +29,10 @@ public class demoServlet implements Servlet {
         JSONObject result = new JSONObject();
 
         try {
-            JSONObject body = new JSONObject(com.liquid.utility.get_request_content((HttpServletRequest) request));
-            result.put("content", body.getString("content"));
-            result.put("filename", body.getString("filename"));
+            String bodyContent = com.liquid.utility.get_request_content((HttpServletRequest) request);
+            JSONObject body = bodyContent != null && !bodyContent.isEmpty() ? new JSONObject(bodyContent) : new JSONObject();
+            result.put("content", body.has("content") ? body.getString("content") : "[EMPTY]");
+            result.put("filename", body.has("filename") ? body.getString("filename") : "[EMPTY]");
         } catch (Exception e) {
             result.put("error", e.getMessage());
         }
