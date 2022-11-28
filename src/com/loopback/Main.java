@@ -12,6 +12,8 @@ public class Main {
             // com.liquid.connection.addLiquidDBConnection("postgres", null, null, "LiquidX", "liquid", "liquid", true);
 
             // Register servlet
+            LiquidMS.addServlet(getPortServlet.class, "/api/v1/dss/sign/port");
+            LiquidMS.addServlet(getUserPortServlet.class, "/api/v1/dss/sign/gedi/port");
             LiquidMS.addServlet(loopbackServlet.class, "/api/v1/dss/sign/base64");
 
             // Register periodic event forever with no start delay
@@ -21,10 +23,12 @@ public class Main {
             // LiquidMS.addEvent("fastCycleDemo", "com.customer.app.demoServlet", "fast_cycle_demo", 0, 1000, 0);
 
             // Run services
+            LiquidMS.port = 8443;
+            LiquidMS.https = true;
             LiquidMS.run(args);
 
         } catch (Throwable e) {
-            System.err.println("Main.java Error:"+e.getMessage());
+            System.err.println("Main.java Error:"+e.getMessage() + "(port:"+LiquidMS.port+")");
             e.printStackTrace();
         }
     }

@@ -81,10 +81,4 @@ public class loopbackServlet implements Servlet {
         System.out.println("destroy");
     }
 
-    public void fast_cycle_demo(Object looperObj) {
-        System.err.print(".");
-    }
-    public void slow_cycle_demo(Object looperObj) {
-        System.err.print("o");
-    }
 }
