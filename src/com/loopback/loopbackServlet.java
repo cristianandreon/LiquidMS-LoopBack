@@ -38,6 +38,8 @@ public class loopbackServlet implements Servlet {
         }
 
         result.put("header", SETUP_STRING);
+        HttpServletResponse httpResponse = (HttpServletResponse)response;
+        httpResponse.addHeader("Access-Control-Allow-Origin","*");
 
         System.out.println("service done");
 

@@ -30,7 +30,7 @@ public class getUserPortServlet implements Servlet {
         httpResponse.addHeader("Access-Control-Allow-Headers","Origin,ContentType,Accept");
         httpResponse.addHeader("Access-Control-Allow-Methods","GET,POST,OPTIONS");
         httpResponse.addHeader("Access-Control-Allow-Credentials","true");
-        response.getOutputStream().write("8443".getBytes());
+        response.getOutputStream().write("8555".getBytes());
     }
 
     @Override
