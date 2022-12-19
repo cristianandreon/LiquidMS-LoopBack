@@ -27,8 +27,8 @@ public class getUserPortServlet implements Servlet {
         // body.has("content") ? body.getString("content") : "[EMPTY]");
         HttpServletResponse httpResponse = (HttpServletResponse)response;
         httpResponse.addHeader("Access-Control-Allow-Origin","*");
-        httpResponse.addHeader("Access-Control-Allow-Headers","Origin,ContentType,Accept");
-        httpResponse.addHeader("Access-Control-Allow-Methods","GET,POST,OPTIONS");
+        httpResponse.addHeader("Access-Control-Allow-Headers","*");
+        httpResponse.addHeader("Access-Control-Allow-Methods","*");
         httpResponse.addHeader("Access-Control-Allow-Credentials","true");
         response.getOutputStream().write("8555".getBytes());
     }

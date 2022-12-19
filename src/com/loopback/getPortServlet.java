@@ -26,6 +26,10 @@ public class getPortServlet implements Servlet {
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         HttpServletResponse httpResponse = (HttpServletResponse)response;
         httpResponse.addHeader("Access-Control-Allow-Origin","*");
+        httpResponse.addHeader("Access-Control-Allow-Origin","*");
+        httpResponse.addHeader("Access-Control-Allow-Headers","*");
+        httpResponse.addHeader("Access-Control-Allow-Methods","*");
+        httpResponse.addHeader("Access-Control-Allow-Credentials","true");
         response.getOutputStream().write("".getBytes());
     }
 
